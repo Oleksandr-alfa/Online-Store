@@ -10,3 +10,5 @@ export const END_POINTS = {
     allProducts: 'products',
     allCategory: 'products/category-list'
 };
+
+export const LIMIT = 12;
