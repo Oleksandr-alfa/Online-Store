@@ -17,4 +17,8 @@ export const renderProducts = (arr) => {
  </li>`)
         .join('');
     refs.productsList.insertAdjacentHTML('beforeend', markup);
+
+}
+export const clearProducts = () => {
+    refs.productsList.innerHTML = '';
 }
