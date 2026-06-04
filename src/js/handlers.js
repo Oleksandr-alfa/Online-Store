@@ -1,5 +1,5 @@
-import { fetchAllCategories, fetchAllProducts } from "./products-api";
-import { renderCategories, renderProducts } from "./render-function";
+import { fetchAllCategories, fetchAllProducts, fetchProductsByCategory } from "./products-api";
+import { clearProducts, renderCategories, renderProducts } from "./render-function";
 
 export const getCategories = async () => {
     try {
@@ -17,4 +17,17 @@ export const getProducts = async () => {
     }catch(error){
         console.log(error);
     };
+}
+
+export const getProductsByCategory = async (event) => {
+    if (event.target.nodeName !== 'BUTTON')
+        return;
+    const category = event.target.textContent;
+    try {
+        const data = await fetchProductsByCategory(category);
+        clearProducts();
+        renderProducts(data.products);
+     } catch (error) {
+        console.log(error);
+    }
 }
