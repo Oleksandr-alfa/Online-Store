@@ -14,6 +14,11 @@ export const fetchAllProducts = async (currentPage) => {
 }
 
 export const fetchProductsByCategory = async (category) => {
-    const response = await axios.get(`${END_POINTS.productsByCategory}/${category}`)
+    const response = await axios.get(`${END_POINTS.productsByCategory}/${category}`);
+    return response.data;
+}
+
+export const fetchProductById = async (id) => {
+    const response = await axios.get(`${END_POINTS.allProducts}/${id}`);
     return response.data;
 }

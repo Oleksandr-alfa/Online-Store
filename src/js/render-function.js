@@ -22,3 +22,20 @@ export const renderProducts = (arr) => {
 export const clearProducts = () => {
     refs.productsList.innerHTML = '';
 }
+
+export const renderProductCard = (arr) => {
+    const markup = arr.map(el => `<img class="modal-product__img" src="${el.thumbnail}" alt="${el.title}" />
+      <div class="modal-product__content">
+        <p class="modal-product__title">${el.title}</p>
+        <ul class="modal-product__tags"></ul>
+        <p class="modal-product__description">${el.description}</p>
+        <p class="modal-product__shipping-information">Shipping:${el.shippingInformation}</p>
+        <p class="modal-product__return-policy">Return Policy:${el.returnPolicy}</p>
+        <p class="modal-product__price">Price:${el.price} $</p>
+        <button class="modal-product__buy-btn" type="button">Buy</button>
+      </div>
+`)
+        .join('');
+    refs.divModalContent.innerHTML = markup;
+    refs.divModal.classList.add('modal--is-open');
+}

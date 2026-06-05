@@ -1,3 +1,6 @@
+import { fetchProductById } from "./products-api";
+import { renderProductCard } from "./render-function";
+
 export const activeFirstBtn = () => {
      const firstBtn = document.querySelector('.categories__btn');
         if (firstBtn) {
@@ -11,4 +14,12 @@ export const activeBtn = (event) => {
         activeBtn.classList.remove('categories__btn--active');
     }
     event.target.classList.add('categories__btn--active');
+}
+export const openProductModal = async (id) => {
+    try {
+        const data = await fetchProductById(id);
+        renderProductCard([data]);
+    } catch (error) {
+        console.log(error);
+    }
 }

@@ -9,7 +9,8 @@ export const BASE_URL = 'https://dummyjson.com/';
 export const END_POINTS = {
     allProducts: 'products',
     allCategory: 'products/category-list',
-    productsByCategory: 'products/category'
+    productsByCategory: 'products/category',
+   
 };
 
 export const LIMIT = 12;
