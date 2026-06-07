@@ -1,6 +1,6 @@
-import { activeBtn, activeFirstBtn } from "./helpers";
+import { activeBtn, activeFirstBtn, openProductModal } from "./helpers";
 import { fetchAllCategories, fetchAllProducts, fetchProductsByCategory } from "./products-api";
-import { clearProducts, renderCategories, renderProducts } from "./render-function";
+import { clearProducts, renderCategories, renderProductCard, renderProducts } from "./render-function";
 
 export const getCategories = async () => {
     try {
@@ -39,4 +39,12 @@ export const getProductsByCategory = async (event) => {
      } catch (error) {
         console.log(error);
     }
+}
+
+export const getProductById = async (event) => {
+    const card = event.target.closest('.products__item');
+    if (!card)  return; 
+    const id = card.dataset.id;  
+    
+    openProductModal(id);
 }
