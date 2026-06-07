@@ -19,6 +19,17 @@ export const fetchProductsByCategory = async (category) => {
 }
 
 export const fetchProductById = async (id) => {
+    
     const response = await axios.get(`${END_POINTS.allProducts}/${id}`);
     return response.data;
+}
+
+export const fetchProductByName = async (normalized) => {
+  
+    const response = await axios.get(END_POINTS.productByName, {
+        params: { q: normalized }
+    });
+   
+    return response.data;
+   
 }

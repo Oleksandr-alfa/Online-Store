@@ -10,7 +10,7 @@ export const END_POINTS = {
     allProducts: 'products',
     allCategory: 'products/category-list',
     productsByCategory: 'products/category',
-   
+   productByName: 'products/search'
 };
 
 export const LIMIT = 12;
