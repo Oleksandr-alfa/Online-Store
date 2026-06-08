@@ -19,6 +19,7 @@ export const renderProducts = (arr) => {
     refs.productsList.insertAdjacentHTML('beforeend', markup);
 
 }
+
 export const clearProducts = () => {
     refs.productsList.innerHTML = '';
 }
