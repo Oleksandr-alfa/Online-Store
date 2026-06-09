@@ -158,6 +158,21 @@
   gap: 1rem;
   margin-top: 1.5rem;
 }
+.modal-product__buy-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  min-width: 200px;
+  padding: 1rem 2rem;
+
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
 .modal-product__btn {
   flex: 1;
@@ -175,7 +190,7 @@
   transition: all 0.3s ease;
 }
 
-[data-theme='dark'] .modal-product__btn,
+/* [data-theme='dark'] .modal-product__btn, */
 [data-theme='dark'] .modal-product__buy-btn,
 [data-theme='dark'] .cart-summary__btn {
   background-color: var(--accent-color);

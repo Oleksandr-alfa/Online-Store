@@ -1,5 +1,6 @@
-import { activeBtn, activeFirstBtn, openProductModal } from "./helpers";
-import { fetchAllCategories, fetchAllProducts, fetchProductsByCategory } from "./products-api";
+import { activeBtn, activeFirstBtn, } from "./helpers";
+import { openProductModal } from "./modal";
+import { fetchAllCategories, fetchAllProducts, fetchProductByName, fetchProductsByCategory } from "./products-api";
 import { clearProducts, renderCategories, renderProductCard, renderProducts } from "./render-function";
 
 export const getCategories = async () => {
@@ -47,4 +48,19 @@ export const getProductById = async (event) => {
     const id = card.dataset.id;  
     
     openProductModal(id);
+}
+
+export const getProductByName = async (event) => {
+    event.preventDefault();
+    const query = event.target.searchValue.value.trim();
+   
+
+    if (!query) return;
+ const normalized = query.slice(0, 4).toLowerCase();
+   try{ const data = await fetchProductByName(normalized);
+    clearProducts();
+       renderProducts(data.products);
+   } catch (error) {
+       console.log(error);
+    }
 }
