@@ -1,6 +1,7 @@
-import { activeBtn, activeFirstBtn, } from "./helpers";
+import { activeBtn, activeFirstBtn, ifNotFoundProducts, } from "./helpers";
 import { openProductModal } from "./modal";
 import { fetchAllCategories, fetchAllProducts, fetchProductByName, fetchProductsByCategory } from "./products-api";
+import { refs } from "./refs";
 import { clearProducts, renderCategories, renderProductCard, renderProducts } from "./render-function";
 
 export const getCategories = async () => {
@@ -58,6 +59,23 @@ export const getProductByName = async (event) => {
     if (!query) return;
  const normalized = query.slice(0, 4).toLowerCase();
    try{ const data = await fetchProductByName(normalized);
+       clearProducts();
+       if (!data.products.length) {             // ← правильная проверка
+      ifNotFoundProducts();
+      return;
+    }
+       renderProducts(data.products);
+   } catch (error) {
+       console.log(error);
+    }
+}
+
+export const clearSearchInputBtn = async() => {
+    refs.input.value = '';
+    
+    try {
+        const data = await fetchAllProducts(1);
+        
     clearProducts();
        renderProducts(data.products);
    } catch (error) {

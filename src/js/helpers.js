@@ -1,4 +1,6 @@
 import { fetchProductById } from "./products-api";
+import { refs } from "./refs";
+import { clearProducts } from "./render-function";
 
 
 export const activeFirstBtn = () => {
@@ -14,4 +16,11 @@ export const activeBtn = (event) => {
         activeBtn.classList.remove('categories__btn--active');
     }
     event.target.classList.add('categories__btn--active');
+}
+export const ifNotFoundProducts = () => {
+    const divNotFound = document.querySelector('.not-found');
+    
+    divNotFound.classList.add('not-found--visible');
+     
+          
 }
