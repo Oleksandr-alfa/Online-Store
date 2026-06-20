@@ -1,3 +1,4 @@
+import { updateCartCount } from "./cart";
 import { clearSearchInputBtn, getCategories, getProductById, getProductByName, getProducts, getProductsByCategory } from "./js/handlers";
 import { closeProductModal } from "./js/modal";
 import {fetchProductByName } from "./js/products-api";
@@ -16,3 +17,5 @@ refs.closeModalBtn.addEventListener('click', closeProductModal);
 refs.searchForm.addEventListener('submit', getProductByName);
 
 refs.clearBtn.addEventListener('click', clearSearchInputBtn);
+
+document.addEventListener('DOMContentLoaded', updateCartCount);
