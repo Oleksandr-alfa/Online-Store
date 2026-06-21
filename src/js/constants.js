@@ -14,3 +14,6 @@ export const END_POINTS = {
 };
 
 export const LIMIT = 12;
+
+export const CART_KEY = 'cart';
+
