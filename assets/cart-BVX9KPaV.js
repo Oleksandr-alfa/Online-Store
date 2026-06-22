@@ -1,0 +1,24 @@
+import{a as n}from"./vendor-N5iQpiFS.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))s(o);new MutationObserver(o=>{for(const c of o)if(c.type==="childList")for(const d of c.addedNodes)d.tagName==="LINK"&&d.rel==="modulepreload"&&s(d)}).observe(document,{childList:!0,subtree:!0});function t(o){const c={};return o.integrity&&(c.integrity=o.integrity),o.referrerPolicy&&(c.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?c.credentials="include":o.crossOrigin==="anonymous"?c.credentials="omit":c.credentials="same-origin",c}function s(o){if(o.ep)return;o.ep=!0;const c=t(o);fetch(o.href,c)}})();const _="https://dummyjson.com/",u={allProducts:"products",allCategory:"products/category-list",productsByCategory:"products/category",productByName:"products/search"},l=12,p="cart",P="wishlist";n.defaults.baseURL=_;const S=async()=>(await n.get(u.allCategory)).data,L=async r=>(await n.get(u.allProducts,{params:{limit:l,skip:(r-1)*l}})).data,q=async r=>(await n.get(`${u.productsByCategory}/${r}`)).data,m=async r=>(await n.get(`${u.allProducts}/${r}`)).data,B=async r=>(await n.get(u.productByName,{params:{q:r}})).data,a={categoryList:document.querySelector(".categories"),productsList:document.querySelector(".products"),divModal:document.querySelector(".modal"),divModalContent:document.querySelector(".modal-product"),closeModalBtn:document.querySelector(".modal__close-btn"),searchForm:document.querySelector(".search-form"),clearBtn:document.querySelector(".search-form__btn-clear"),input:document.querySelector(".search-form__input"),addToCartBtn:document.querySelector(".modal-product__btn--cart"),addToWishlist:document.querySelector(".modal-product__btn--wishlist"),cartProductsList:document.querySelector(".cart-products")},M=r=>{const e=r.map(t=>`<li class="categories__item"><button class="categories__btn" type="button">${t}</button></li>`).join("");a.categoryList.innerHTML=e},I=r=>{const e=r.map(t=>`<li class="products__item" data-id="${t.id}">
+        <img class="products__image" src="${t.thumbnail}" alt="${t.title}"/>
+    <p class="products__title">${t.title}</p>
+    <p class="products__brand"><span class="products__brand--bold">Brand:${t.brand}</span></p>
+    <p class="products__category">Category:${t.category}</p>
+    <p class="products__price">Price: ${t.price}$</p>
+ </li>`).join("");a.productsList.insertAdjacentHTML("beforeend",e)},T=()=>{a.productsList.innerHTML=""},v=r=>{const e=r.map(t=>`<img class="modal-product__img" src="${t.thumbnail}" alt="${t.title}" />
+      <div class="modal-product__content">
+        <p class="modal-product__title">${t.title}</p>
+        <ul class="modal-product__tags"></ul>
+        <p class="modal-product__description">${t.description}</p>
+        <p class="modal-product__shipping-information">Shipping:${t.shippingInformation}</p>
+        <p class="modal-product__return-policy">Return Policy:${t.returnPolicy}</p>
+        <p class="modal-product__price">Price:${t.price} $</p>
+        <button class="modal-product__buy-btn" type="button">Buy</button>
+      </div>
+`).join("");a.divModalContent.innerHTML=e,a.divModal.classList.add("modal--is-open")},f=r=>{const e=r.map(t=>`<li class="products__item" data-id="${t.id}">
+        <img class="products__image" src="${t.thumbnail}" alt="${t.title}"/>
+    <p class="products__title">${t.title}</p>
+    <p class="products__brand"><span class="products__brand--bold">Brand:${t.brand}</span></p>
+    <p class="products__category">Category:${t.category}</p>
+    <p class="products__price">Price: ${t.price}$</p>
+ </li>`).join("");a.cartProductsList.insertAdjacentHTML("beforeend",e)};document.addEventListener("DOMContentLoaded",()=>{y(),document.querySelector(".cart-products")&&b()});const i=()=>{try{return JSON.parse(localStorage.getItem(p))||[]}catch{return[]}},g=r=>{localStorage.setItem(p,JSON.stringify(r))},C=r=>{const e=i(),t=e.indexOf(r);return t===-1?e.push(r):e.splice(t,1),g(e),e.includes(r)},h=r=>i().includes(r),x=r=>{const e=a.addToCartBtn;e.textContent=h(r)?"Remove from Cart":"Add to Cart",e.onclick=()=>{const t=C(r);e.textContent=t?"Remove from Cart":"Add to Cart",y()}},y=async()=>{const r=i(),e=document.querySelector("[data-cart-count]"),t=document.querySelector("[data-price"),s=document.querySelector("[data-count]");if(document.querySelector("[data-shipping]"),!e||(e.textContent=r.length,!s)||(s.textContent=r.length,!t))return;let o=0;for(const c of r){const d=await m(c);o+=d.price}t.textContent=`$${o}`},b=async()=>{const r=i(),e=document.querySelector(".cart-products");e.innerHTML="";const t=[];for(const s of r){const o=await m(s);t.push(o)}f(t)};export{P as W,v as a,S as b,M as c,L as d,I as e,m as f,q as g,T as h,x as i,B as j,i as l,a as r,y as u};
+//# sourceMappingURL=cart-BVX9KPaV.js.map
