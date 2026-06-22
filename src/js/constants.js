@@ -17,3 +17,4 @@ export const LIMIT = 12;
 
 export const CART_KEY = 'cart';
 
+export const WISHLIST_KEY = 'wishlist';
