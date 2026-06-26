@@ -8,6 +8,7 @@ export const refs = {
     clearBtn: document.querySelector('.search-form__btn-clear'),
   input: document.querySelector('.search-form__input'),
   addToCartBtn: document.querySelector('.modal-product__btn--cart'),
-  addToWishlist: document.querySelector('.modal-product__btn--wishlist'),
+  addToWishlistBtn: document.querySelector('.modal-product__btn--wishlist'),
   cartProductsList: document.querySelector('.cart-products'),
+  // modalAddBtnBox: document.querySelector('.modal-product__actions'),
 }

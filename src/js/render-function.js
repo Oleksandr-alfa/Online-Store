@@ -50,5 +50,6 @@ export const renderProductsInCart = (arr)=>{
     <p class="products__price">Price: ${el.price}$</p>
  </li>`)
         .join('');
+    refs.cartProductsList.innerHTML = '';
     refs.cartProductsList.insertAdjacentHTML('beforeend', markup);
 }

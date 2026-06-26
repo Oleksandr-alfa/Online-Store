@@ -8,6 +8,8 @@ getCategories();
 
 getProducts();
 
+document.addEventListener('DOMContentLoaded', updateCartCount);
+
 refs.categoryList.addEventListener('click', getProductsByCategory);
 
 refs.productsList.addEventListener('click', getProductById);
@@ -18,4 +20,3 @@ refs.searchForm.addEventListener('submit', getProductByName);
 
 refs.clearBtn.addEventListener('click', clearSearchInputBtn);
 
-document.addEventListener('DOMContentLoaded', updateCartCount);
